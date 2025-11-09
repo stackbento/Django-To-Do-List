@@ -5,11 +5,26 @@
     <!-- <h1>Hello World</h1> -->
      <!-- check if the things from the db/List model are there or not -->
       {% if all_items %}
-        <ul>
+      <!-- including table and adding bootstrap class -->
+        <table class="table table-bordered">
             {% for items in all_items %}
-                <li>{{items.item}} | {{items.is_completed}}</li>
-            {% endfor %}
-
-        </ul>
+                {% if items.is_completed %}
+                    <tr class ="table-success">
+                        <td class="striker">{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
+                        <td><center>{{items.is_completed}}</center></td>
+                        <td><center><button class="btn btn-outline-secondary" type="submit">Delete</button></center></td>
+                        
+                    </tr>
+                {% else %}    
+                    <tr>
+                        <td>{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
+                        <td><center>{{items.is_completed}}</center></td>
+                        <td><center><button class="btn btn-outline-secondary" type="submit">Delete</button></center></td>
+                    
+                    </tr>
+                {% endif %}    
+            {% endfor %}    
+        </table>
+        
       {% endif %}  
 {% endblock %}
