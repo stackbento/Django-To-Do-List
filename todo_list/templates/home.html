@@ -3,6 +3,19 @@
 
 {% block content %}
     <!-- <h1>Hello World</h1> -->
+     <!-- success messages -->
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible" role="alert" >
+                <button type="button" class="btn-close" data-bs-dismiss="alert">
+                    <small><sup></sup></small>
+                </button>
+                {{ message }}
+            </div>
+            
+        {% endfor %}
+
+      {% endif %}
      <!-- check if the things from the db/List model are there or not -->
       {% if all_items %}
       <!-- including table and adding bootstrap class -->
