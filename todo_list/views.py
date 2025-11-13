@@ -22,3 +22,26 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+
+def delete(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.delete()
+    messages.success(request, ('Item has been deleted!'))
+    return redirect('home')
+
+
+
+#unfinished items
+def incomplete(request,list_id):
+    item = List.objects.get(pk=list_id)
+    item.is_completed=True
+    item.save()
+    return redirect('home')
+
+#finished items
+def complete(request,list_id):
+    item = List.objects.get(pk=list_id)
+    item.is_completed=False
+    item.save()
+    return redirect('home')

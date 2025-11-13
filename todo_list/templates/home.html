@@ -24,15 +24,19 @@
                 {% if items.is_completed %}
                     <tr class ="table-success">
                         <td class="striker">{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
-                        <td><center>{{items.is_completed}}</center></td>
-                        <td><center><button class="btn btn-outline-secondary" type="submit">Delete</button></center></td>
+                        <!-- <td><center>Done</a></center></td> -->
+                        <td><center><a href="{% url 'complete' items.id %}">Done</a></center></td>
+                        <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
+                         <td><center><a href="{% url 'delete' items.id %}">Delete</a></center></td>
                         
                     </tr>
                 {% else %}    
-                    <tr>
+                    <tr class="table-danger">
                         <td>{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
-                        <td><center>{{items.is_completed}}</center></td>
-                        <td><center><button class="btn btn-outline-secondary" type="submit">Delete</button></center></td>
+                        <!-- <td><center>Not Done</a></center></td> -->
+                        <td><center><a href="{% url 'incomplete' items.id %}">Not Done</a></center></td>
+                        <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
+                         <td><center><a href="{% url 'delete' items.id %}">Delete</a></center></td>
                     
                     </tr>
                 {% endif %}    
