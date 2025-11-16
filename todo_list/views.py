@@ -45,3 +45,21 @@ def complete(request,list_id):
     item.is_completed=False
     item.save()
     return redirect('home')
+
+
+#edit the main item
+def edit(request, list_id):
+    if request.method == 'POST' :
+        items = List.objects.get(pk=list_id)
+        form = ListForm(request.POST or None, instance = items)
+
+        if form.is_valid():
+            form.save()
+            # all_items = List.objects.all()
+            messages.success(request, ('Item has been Edited!'))
+            # context={'all___items':all_items}
+            return redirect('home')
+    else:
+        items = List.objects.get(pk=list_id) 
+        context={'items':items}   
+        return render(request, 'edit.html', context )

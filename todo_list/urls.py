@@ -7,4 +7,6 @@ urlpatterns = [
     path("delete/<list_id>", views.delete, name='delete'),
     path("incomplete/<list_id>", views.incomplete, name='incomplete'),
     path("complete/<list_id>", views.complete, name='complete'),
+    #edit the main item
+    path("edit/<list_id>", views.edit, name= 'edit'),
 ]

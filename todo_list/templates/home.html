@@ -23,7 +23,7 @@
             {% for items in all_items %}
                 {% if items.is_completed %}
                     <tr class ="table-success">
-                        <td class="striker">{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
+                        <td class="striker"><a href="{% url 'edit' items.id %}">{{items.item | title}}</a></td> <!-- | character and title allows the first letter to be capitalized -->
                         <!-- <td><center>Done</a></center></td> -->
                         <td><center><a href="{% url 'complete' items.id %}">Done</a></center></td>
                         <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
@@ -32,7 +32,7 @@
                     </tr>
                 {% else %}    
                     <tr class="table-danger">
-                        <td>{{items.item | title}}</td> <!-- | character and title allows the first letter to be capitalized -->
+                        <td><a href="{% url 'edit' items.id %}">{{items.item | title}}</a></td> <!-- | character and title allows the first letter to be capitalized -->
                         <!-- <td><center>Not Done</a></center></td> -->
                         <td><center><a href="{% url 'incomplete' items.id %}">Not Done</a></center></td>
                         <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
