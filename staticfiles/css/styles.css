@@ -1,0 +1,8 @@
+.striker{
+    text-decoration: line-through;
+}
+/* removing the hyperlink */
+a {
+    color: #000000;
+    text-decoration: none;
+}
