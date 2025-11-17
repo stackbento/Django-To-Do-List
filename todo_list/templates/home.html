@@ -25,18 +25,18 @@
                     <tr class ="table-success">
                         <td class="striker"><a href="{% url 'edit' items.id %}">{{items.item | title}}</a></td> <!-- | character and title allows the first letter to be capitalized -->
                         <!-- <td><center>Done</a></center></td> -->
-                        <td><center><a href="{% url 'complete' items.id %}">Done</a></center></td>
+                        <td><center><button type="button" class="btn btn-success"><a href="{% url 'complete' items.id %}">Done</a></button></center></td>
                         <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
-                         <td><center><a href="{% url 'delete' items.id %}">Delete</a></center></td>
+                         <td><center><button type="button" class="btn btn-warning"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td>
                         
                     </tr>
                 {% else %}    
                     <tr class="table-danger">
                         <td><a href="{% url 'edit' items.id %}">{{items.item | title}}</a></td> <!-- | character and title allows the first letter to be capitalized -->
                         <!-- <td><center>Not Done</a></center></td> -->
-                        <td><center><a href="{% url 'incomplete' items.id %}">Not Done</a></center></td>
+                        <td><center><button type="button" class="btn btn-danger"><a href="{% url 'incomplete' items.id %}">Not Done</a></button></center></td>
                         <!-- <td><center><button class="btn btn-outline-secondary" type="submit"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td> -->
-                         <td><center><a href="{% url 'delete' items.id %}">Delete</a></center></td>
+                         <td><center><button type="button" class="btn btn-warning"><a href="{% url 'delete' items.id %}">Delete</a></button></center></td>
                     
                     </tr>
                 {% endif %}    
